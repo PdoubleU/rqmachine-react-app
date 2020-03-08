@@ -1,12 +1,19 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import * as quotas from './quotas.js';
 
 function App() {
   return (
     <div id="containter">
       <div id="quote-box">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque.</p>
-        <p>author</p>
+        <p id="text">" {quotas.QUOTAS_AND_AUTHORS[6][0]} "</p>
+        <p id="author">{quotas.QUOTAS_AND_AUTHORS[6][1]}</p>
+        <span class="buttons">
+        <button id="new-quote" class="button">New quote</button>
+        <a href="twitter.com/intent/tweet" id="tweet-quote" target="_blank" class="button">
+          <i class="fa fa-twitter"></i>
+        </a>
+        </span>
       </div>
     </div>
   );

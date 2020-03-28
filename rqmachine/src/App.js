@@ -1,34 +1,43 @@
-import React from 'react';
-import './App.scss';
+import React, { Component } from 'react';
+import './App.min.css';
 import * as quotas from './quotas.js';
 
-function App() {
-  return (
-    <div id="container">
-      <div id="quote-box">
-        <p id="text">" {quotas.QUOTAS_AND_AUTHORS[6][0]} "</p>
-        <p id="author">{quotas.QUOTAS_AND_AUTHORS[6][1]}</p>
-        <span className="buttons">
-        <button id="new-quote" className="button" color={this.state.color}>New quote</button>
-        <a href="twitter.com/intent/tweet" id="tweet-quote" target="_blank" className="button">
-          <i className="fa fa-twitter"></i>
-        </a>
-        </span>
-      </div>
-    </div>
-  );
-}
-
-class changeColor extends React.Component {
+class App extends React.Component{
   constructor(props) {
-    super(props);
-
-    this.state = {
-      color: ' ',
-      backgroundColor: ' ',
+      super(props);
+      this.state = {
+        text: '',
+        author: '',
+        backgroundColor: {backgroundColor: ''},
+        color: {color: ''}
+      }
+      this.handleClick = this.handleClick.bind(this);
     }
+  handleClick(){
+    var quoteIndex = Math.floor(Math.random() * quotas.QUOTAS_AND_AUTHORS.length);
+    this.setState({
+      text: quotas.QUOTAS_AND_AUTHORS[quoteIndex][0],
+      author: quotas.QUOTAS_AND_AUTHORS[quoteIndex][1],
+      backgroundColor: {backgroundColor: quotas.BKG_COLORS[quoteIndex]},
+      color: {color: quotas.BKG_COLORS[quoteIndex]}
+    })
   }
-}
+  render(){
+    return (
+      <div className='container' style={this.state.backgroundColor}>
+        <div id="quote-box" >
+          <p id="text" style={this.state.color}>" {this.state.text} " </p>
+          <p id="author" style={this.state.color}> - {this.state.author} </p>
+          <span className="buttons">
+          <button id="new-quote" className="button" onClick={this.handleClick} style={this.state.backgroundColor}>new quote</button>
+          <a href="twitter.com/intent/tweet" id="tweet-quote" target="_blank" className="button" style={this.state.backgroundColor}>
+          </a>
+          </span>
+        </div>
+      </div>
+      )
+  }
+};
 
 
 export default App;

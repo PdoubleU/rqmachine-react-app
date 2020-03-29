@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.min.css';
 import * as quotas from './quotas.js';
+import ReactFCCtest from 'react-fcctest';
 
 class App extends React.Component{
   constructor(props) {
@@ -22,6 +23,9 @@ class App extends React.Component{
       color: {color: quotas.BKG_COLORS[quoteIndex]}
     })
   }
+  componentDidMount(){
+    this.handleClick()
+  }
   render(){
     return (
       <div className='container' style={this.state.backgroundColor}>
@@ -30,8 +34,9 @@ class App extends React.Component{
           <p id="author" style={this.state.color}> - {this.state.author} </p>
           <span className="buttons">
           <button id="new-quote" className="button" onClick={this.handleClick} style={this.state.backgroundColor}>new quote</button>
-          <a href="twitter.com/intent/tweet" id="tweet-quote" target="_blank" className="button" style={this.state.backgroundColor}>
+          <a href={"https://twitter.com/intent/tweet?text=" + this.state.text + " - " + this.state.author} id="tweet-quote"  rel='noopener noreferrer' target="_blank" className="button" style={this.state.backgroundColor} data-size='large'>
           </a>
+          <ReactFCCtest/>
           </span>
         </div>
       </div>

@@ -58,6 +58,8 @@ body {
   transition: background-color 1s ease-in;
   margin: 0;
   outline: none;
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
@@ -79,4 +81,25 @@ body {
   min-height: 1.2rem;
   font-weight: 100;
   transition: background-color 1s ease-in;
+}
+
+.iconBox {
+  position: absolute;
+  display: flex;
+  min-height: 3rem;
+  font-size: 2rem;
+}
+
+.iconBox .icon {
+  opacity: .333;
+  margin: 0;
+}
+
+.twitterIcon {
+  display: flex;
+  padding: .1rem;
+}
+
+.twitterIcon .icon {
+  max-height: .6em;
 }

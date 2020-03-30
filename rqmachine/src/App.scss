@@ -50,6 +50,8 @@ body {
     transition: background-color 1s ease-in;
     margin: 0;
     outline: none;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     &:hover{
       opacity: 0.8;
@@ -68,5 +70,22 @@ body {
       font-weight: 100;
       transition: background-color 1s ease-in;
     }
+  }
+}
+.iconBox{
+  position: absolute;
+  display: flex;
+  min-height: 3rem;
+  font-size: 2rem;
+  & .icon {
+  opacity: .333;
+  margin: 0;
+  }
+}
+.twitterIcon {
+  display: flex;
+  padding: .1rem;
+  & .icon {
+    max-height: .6em;
   }
 }
